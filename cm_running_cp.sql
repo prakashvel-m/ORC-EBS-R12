@@ -1,0 +1,14 @@
+SELECT V.REQUEST_ID "Request Id",
+V.STATUS_CODE Status,
+TO_CHAR(V.ACTUAL_START_DATE,'DD-MON-YY-HH24:MI:SS') "Start Date",
+SUBSTR(V.REQUESTOR,1,20) "Requestor",FU.DESCRIPTION,
+TO_CHAR(TRUNC(round(((sysdate - V.actual_start_date)*86400),2)/3600),'FM9900') || ':' ||
+TO_CHAR(TRUNC(MOD(round(((sysdate - V.actual_start_date)*86400),2),3600)/60),'FM00') || ':' ||
+TO_CHAR(MOD(round(((sysdate - V.actual_start_date)*86400),2),60),'FM00')RUN_TIME,
+SUBSTR(V.PROGRAM,1,120) "Program_Name",
+V.ARGUMENT_TEXT
+FROM apps.FND_CONC_REQ_SUMMARY_V V, apps.FND_CONCURRENT_REQUESTS C ,FND_USER FU
+WHERE V.STATUS_CODE LIKE 'R'
+AND V.REQUESTOR=FU.USER_NAME
+AND V.REQUEST_ID = C.REQUEST_ID
+ORDER BY 5 desc;
