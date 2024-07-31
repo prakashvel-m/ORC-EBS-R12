@@ -5,7 +5,7 @@ FROM fnd_user_resp_groups_direct furg
 JOIN fnd_user fu ON furg.user_id = fu.user_id 
 JOIN fnd_user fu1 on furg.LAST_UPDATED_BY = fu1.user_id
 JOIN fnd_responsibility_vl fr ON furg.responsibility_id = fr.responsibility_id
-WHERE fu.user_name = '515137378';
+WHERE fu.user_name = 'user_name';
 
 
 -- TO CHECK ROLES OF THE USER
@@ -18,7 +18,7 @@ apps.UMX_ALL_ROLE_VL wfr
 WHERE 1=1
 AND wlur.role_name = wrh.sub_name (+)
 and wfr.name = wlur.role_name
-and wlur.USER_NAME = '502362397' -- USER NAME
+and wlur.USER_NAME = 'user_name' -- USER NAME
 and sysdate between wlur.EFFECTIVE_START_DATE and wlur.EFFECTIVE_END_DATE
 --and wfr.display_name like 'Receivables - Limited Access' ---- Responsibility Name
 -- and role_name ='FND_RESP|SQLGL|AMZ_GL_LOOK_CODE_MGR|STANDARD' -- Role Name
