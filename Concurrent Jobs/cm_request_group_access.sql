@@ -5,4 +5,4 @@ AND fur.responsibility_id = fr.responsibility_id
 AND fr.request_group_id = frg.request_group_id
 AND frg.request_group_id = frgu.request_group_id
 AND frgu.request_unit_id = fcp.concurrent_program_id
-AND fu.user_name = '502338478';
+AND fu.user_name = '';
