@@ -28,5 +28,5 @@ AND cp.executable_application_id = e.application_id
 AND e.application_id=ap.application_id
 AND lv.lookup_type = 'CP_EXECUTION_METHOD_CODE'
 AND lv.lookup_code = e.execution_method_code
-AND rs.user_request_set_name like '%GEWSH Planned Shipment Integration Set - APL%'
+AND rs.user_request_set_name like '%%'
 AND lv.language='US'
