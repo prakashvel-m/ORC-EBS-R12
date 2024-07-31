@@ -13,7 +13,7 @@ FROM FND_CONCURRENT_PROGRAM_SERIAL
 WHERE (SELECT user_concurrent_program_name 
        FROM fnd_concurrent_programs_vl 
        WHERE concurrent_program_id = running_concurrent_program_id 
-       AND application_id = running_application_id) like '%GEWSH Trans shipment outbound program -APL%'
+       AND application_id = running_application_id) like '%%'
 ORDER BY 1;
 
 SELECT distinct fat.application_id,
@@ -30,5 +30,5 @@ SELECT distinct fat.application_id,
    --AND fcpt.CONCURRENT_PROGRAM_ID in (select CONCURRENT_PROGRAM_ID from FND_CONCURRENT_PROGRAMS where concurrent_program_name='&shortname')
    AND fcpt.LANGUAGE = 'US'
    AND fat.LANGUAGE = 'US'
-AND fcpt.user_concurrent_program_name like  '%GEWSH Trans shipment outbound program -APL%'
+AND fcpt.user_concurrent_program_name like  '%%'
  ORDER BY 1, 2;
