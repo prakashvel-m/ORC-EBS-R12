@@ -3,7 +3,7 @@ concurrent_program_name,user_concurrent_program_name
 from 
 fnd_concurrent_programs_vl b 
 where
-user_concurrent_program_name like '%GEPO Agile EBS Item Interface Request Set - APL%';
+user_concurrent_program_name like '%user_concurrent_program_name%';
 
 select
 c.program_short_name,c.program,b.user_concurrent_program_name
@@ -11,7 +11,7 @@ from
 fnd_concurrent_programs_vl b,FND_CONC_REQ_SUMMARY_V c
 where
 c.program_short_name=b.concurrent_program_name
-and b.user_concurrent_program_name like '%GEONT EDI 860 Order Update - APL%';
+and b.user_concurrent_program_name like '%user_concurrent_program_name%';
 
 select 
 a.lookup_type,
@@ -29,5 +29,5 @@ fnd_concurrent_programs_vl b
 where 
 lookup_type = 'GEFND_JOB_MONITOR_LT' 
 and b.concurrent_program_name = a.lookup_code
-and b.user_concurrent_program_name like '%GEONT EDI 860 Order Update - APL%';
+and b.user_concurrent_program_name like '%user_concurrent_program_name%';
 --and lookup_code = 'GEARCCUPSETPROG';
