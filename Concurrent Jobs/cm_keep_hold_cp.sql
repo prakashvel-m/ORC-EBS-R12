@@ -5,33 +5,33 @@
 update apps.fnd_concurrent_requests set hold_flag = 'Y',last_update_date = sysdate, last_updated_by = -1
 where request_id in
 (select distinct count(*) request_id from APPS.FND_CONC_REQ_SUMMARY_V
-where program = 'GEONT Agent Transition - APL'
+where program = ''
 and phase_code = 'P'
-and requestor ='214017235';);
+and requestor ='';);
 
 --Verify no of rows before commit
 
 select distinct count(*) request_id from APPS.FND_CONC_REQ_SUMMARY_V
-where program = 'GEONT Agent Transition - APL'
+where program = ''
 and phase_code = 'P'
-and requestor ='214017235';
+and requestor ='';
 
 -- Release jobs:
 
 update apps.fnd_concurrent_requests set hold_flag = 'N', last_update_date = sysdate, last_updated_by = -1
 where hold_flag = 'Y' and request_id in
 (select distinct request_id from APPS.FND_CONC_REQ_SUMMARY_V
-where program = 'GEONT Agent Transition - APL'
+where program = ''
 and phase_code = 'P'
-and requestor ='214017235';);
+and requestor ='';);
 
 
 update apps.fnd_concurrent_requests set status_code='X', phase_code='C'
 where request_id in
 (
 select distinct count(*) request_id from APPS.FND_CONC_REQ_SUMMARY_V
-where program = 'GEWSH Pick confirm program - APL (GEWSH Pick confirm program - APL)'
-and requestor = '515115268'
+where program = ''
+and requestor = ''
 and phase_code = 'P'
 and status_code = 'Q'
 );
