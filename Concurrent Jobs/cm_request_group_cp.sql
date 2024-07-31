@@ -5,7 +5,7 @@ FROM fnd_request_groups frg, fnd_request_group_units frgu, fnd_concurrent_progra
 WHERE frgu.request_group_id = frg.request_group_id
 AND frgu.request_unit_id = fcp.concurrent_program_id
 AND frgu.LAST_UPDATED_BY = fu.user_id
-AND fcp.user_concurrent_program_name = 'GEAR Send Customer Dunning Letters - APL'
+AND fcp.user_concurrent_program_name = 'user_concurrent_program_name'
 ORDER BY LAST_UPDATE_DATE DESC;
 
 
@@ -16,5 +16,5 @@ FROM fnd_request_groups frg, fnd_request_group_units frgu, fnd_concurrent_progra
 WHERE frgu.request_group_id = frg.request_group_id
 AND frgu.request_unit_id = fcp.concurrent_program_id
 AND frgu.LAST_UPDATED_BY = fu.user_id
-AND frg.request_group_name = 'GEAR Req Grp1(APL Other User)'
+AND frg.request_group_name = 'request_group_name'
 ORDER BY LAST_UPDATE_DATE DESC;
