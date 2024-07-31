@@ -23,3 +23,12 @@ and sysdate between wlur.EFFECTIVE_START_DATE and wlur.EFFECTIVE_END_DATE
 --and wfr.display_name like 'Receivables - Limited Access' ---- Responsibility Name
 -- and role_name ='FND_RESP|SQLGL|AMZ_GL_LOOK_CODE_MGR|STANDARD' -- Role Name
 order by wlur.ROLE_NAME
+
+  
+-- TO CHECK USERS WITH SPECIFIC RESPONSIBLITY
+
+SELECT fu.user_name as SSO,fu.description NAME,fu.email_address, fr.responsibility_name, furg.start_date, furg.end_date
+FROM fnd_user_resp_groups_direct furg
+JOIN fnd_user fu ON furg.user_id = fu.user_id
+JOIN fnd_responsibility_vl fr ON furg.responsibility_id = fr.responsibility_id
+WHERE fr.responsibility_name like '%Setup%' and furg.END_DATE is NULL;
