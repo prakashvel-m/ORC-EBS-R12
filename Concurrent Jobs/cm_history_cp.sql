@@ -8,12 +8,8 @@ Round((nvl(actual_completion_Date,sysdate)-actual_start_Date)*24*60,2) time_take
 where 1=1
 and
 program like '%program%'
---program like '%GEMSC Push Non onhand supply – APL%'
--- program like '%GEWSH SDS Delivery Creation and OTM Integration Req Set%'
 --request_id in (1291471196);  
---and program like '%GEWSH SDS Delivery Creation and OTM Integration Req Set%'
 --and argument_text like '%N%'
---and program like '%GEWSH Directs Delivery Creation and OTM Integration Req Set%'
 --and phase_code not in ('C') -- E (Error), D(Cancelled)
 --and phase_code in ('C')
 order by a.request_id desc;
