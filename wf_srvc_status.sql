@@ -1,0 +1,1 @@
+select COMPONENT_NAME,COMPONENT_STATUS from apps.fnd_svc_components
